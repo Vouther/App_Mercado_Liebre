@@ -1,0 +1,57 @@
+.main-register{
+    background-color: #ebebeb;
+}
+
+.form-register{
+    padding: 20px;
+}
+
+.form-field{
+    padding: 10px;
+}
+
+.form-field label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#nya , #user, #email, #date, #domicile, #password, #confirm{
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-options input{
+    margin-right: 10px;
+}
+
+.form-button{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #1259c3;
+    color: #ebebeb;
+}
+
+@media (min-width: 361px){
+    .form-register{
+        width: 90%;
+        margin: 20px auto;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+}
+
+@media (min-width: 719px){
+    .form-register{
+        max-width: 500px;
+        margin: 20px auto;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+}
