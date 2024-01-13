@@ -25,6 +25,11 @@
     padding: 10px;
     background-color: #1259c3;
     color: #ebebeb;
+    transition: background-color 200ms;
+}
+
+#send:hover {
+    background-color: #0022AA;
 }
 
 @media (min-width: 361px){

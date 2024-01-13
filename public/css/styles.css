@@ -21,15 +21,39 @@ body {
     padding: 5px;
 }
 
+.header_logo, .header-top-bar nav a{
+    max-width: 200px;
+}
+
+/*
+Animacion del Logo
+Una animacion no requiere de interaccion del usuario
+
 .header_logo{
     width: 200px;
+    animation: aumentarLogo 1s linear infinite alternate;
 }
+
+alternate: ve y vuelve;
+infinite: son las veces que se repite;
+
+@keyframes aumentarLogo {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+*/
 
 .header_search{
     background-color: white;
     display: flex;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
+    margin: 10px;
+    margin-right: 0px;
 }
 
 #busqueda{
@@ -37,6 +61,8 @@ body {
     width: 85%;
     border: none;
     border-right: 2px solid #ebebeb;
+    outline: none;
+    margin-right: 10px;
 }
 
 .fas.fa-search{
@@ -55,6 +81,7 @@ body {
     display: inline-block;
     padding: 5px 0;
     font-size: 13px;
+    color: black;
 }
 
 .burger-menu {
@@ -67,8 +94,12 @@ body {
     justify-content: center;
     cursor: pointer;
     margin: 10px auto;
+    transition: background-color 0.2s;
 }
 
+.burger-menu:hover {
+    background-color: #0022AA;
+}
 
 .fas.fa-bars {
     font-size: 24px;
@@ -102,14 +133,20 @@ body {
     align-self: flex-start;
 }
 
-.main article {
+.product {
     margin-bottom: 10px;
     background-color: white;
+    box-shadow: 0px 0px 10px rgb(202, 202, 202);
+    transition: box-shadow 0.3ms;
+    position: relative;
+}
+
+.product:hover {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
 .article_img {
-    margin: 0 auto; /* Para centrar el main horizontalmente */
+    margin: 20px auto; /* Para centrar el main horizontalmente */
     display: flex;
     width: 100%;
 }
@@ -119,10 +156,23 @@ body {
     padding: 15px;
 }
 
+.article_detail label{
+    display: flex;
+}
+
 .fas.fa-truck {
     border: 1px solid #39b54a; 
     border-radius: 50%; /* Hace que el fondo sea un círculo */
     padding: 10px; /* Ajusta según el espacio entre el icono y el círculo */
+    width: 40px;
+    height: 40px;
+    transition: transform 0.5s;
+    position: absolute;
+    bottom: 35px;
+}
+
+.fas.fa-truck:hover {
+    transform: rotateZ(-90deg);
 }
 
 .article_detail i, .descuento{
@@ -135,14 +185,44 @@ body {
 
 .precio{
     font-size: 18px;
+    margin-right: 20px;
 }
 
 .descuento{
     font-size: 16px;
 }
 
+/*
+realite-absolute
+ocultar texto sobre un elemento
+product h2{
+    width: 100%;
+    heigtht: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 450ms; 
+}
+
+Para que apareza cuando pasa el cursor
+
+product:hover h2 {
+    opacity: 1;
+    background-color: red;
+    border-radius: 5px;
+}
+
+*/
+
 .descripcion{
     font-size: 16px;
+    color: white;
+    transition: color 200ms;
+}
+
+.descripcion:hover {
+    color: black;
 }
 
 /* FOOTER */
@@ -166,12 +246,23 @@ body {
 
 .footer section h3 {
     color: #666;;
+    margin-bottom: 10px;
+}
+
+.footer section p {
+    color: #666;;
+    margin-bottom: 10px;
 }
 
 .footer i.fas {
     font-size: 2em;
     margin-bottom: 10px;
     color: #1259c3;
+    transition: color 200ms;
+}
+
+.footer i.fas:hover {
+    color: #03264C;
 }
 
 @media (min-width: 361px){
@@ -183,14 +274,24 @@ body {
         margin: 5 auto;
     }
 
-    .header-top-bar{
+    .header-top-bar nav{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        width: 100%;
+        justify-content: space-between;
     }
 
-    .header_search, .header_logo{
+    .header-top-bar nav a{
         width: 50%;
+    }
+
+    .header_search{
+        width: 45%;
+    }
+
+    .header_logo{
+        max-width: 200px;
     }
 
     .article_detail {
@@ -209,7 +310,7 @@ body {
     }
 
     .header-top-bar form{
-        width: 40%;
+        width: 50%;
         max-width: 500px;
         margin: 0 10px;
     }
@@ -221,10 +322,15 @@ body {
     .burger-menu{
         display: none;
     }
+
     .header-top-bar{
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .header-top-bar nav{
+        width: 70%;
     }
 
     .header-top-bar h4{
@@ -244,7 +350,7 @@ body {
     }
 
     .header-nav li{
-        margin: 0 5px;
+        margin-right: 20px;
     }
 
     .main section{
@@ -253,8 +359,12 @@ body {
         flex-wrap: wrap;
     }
 
-    .main article{
+    .product{
         max-width: 280px;
+    }
+
+    .fas.fa-truck {
+        bottom: 50px;
     }
 
     .footer-info{
